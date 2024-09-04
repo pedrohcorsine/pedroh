@@ -5,7 +5,7 @@ def tela1():
     # All the stuff inside your window.
     layout = [  [sg.Text("Digite o seu nome:"), sg.InputText(key='nome')],
                 [sg.Text("Digite a primeira nota:"), sg.InputText(key='nota1')],
-                [sg.Text("Digite a segunda nota:"), sg.InputText(key='nota2')],
+                [sg.Text("Digite a terceira nota:"), sg.InputText(key='nota2')],
                 [sg.Text('')],
                 [sg.Button('Adicionar aluno'), sg.Button('Cancel'), sg.Button('Resultado')] ]
 
