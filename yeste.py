@@ -1,5 +1,8 @@
-banana = 11
+número = 'jhj'
 
 
-if banana > 5 or banana < 10:
-    print('maior')
+lista = [1,2,7]
+
+for i in lista:
+    nome = i
+    print(f'O valor é {nome}')

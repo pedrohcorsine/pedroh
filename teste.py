@@ -1,12 +1,12 @@
 import PySimpleGUI as sg
 
 def tela1():
-   
+    lista=[]
     # All the stuff inside your window.
     layout = [  [sg.Text("Digite o seu nome:"), sg.InputText(key='nome')],
                 [sg.Text("Digite a primeira nota:"), sg.InputText(key='nota1')],
                 [sg.Text("Digite a segunda nota:"), sg.InputText(key='nota2')],
-                [sg.Text('')],
+                [sg.Text('',key='resultado')],
                 [sg.Button('Adicionar aluno'), sg.Button('Cancel'), sg.Button('Resultado')] ]
 
     # Create the Window
@@ -21,21 +21,37 @@ def tela1():
             break
             
         if event == 'Resultado':
-            window.close()
-            tela2()
+            window['resultado'].update(lista)
 
         if event == 'Adicionar aluno':
             nome = values['nome']
-            nota1 = int(values['nota1'])
-            nota2 = int(values['nota2'])
+            nota1 = values['nota1']
+            nota2 = values['nota2']
 
-            if len(nome) < 3:
-             sg.popup('Esta errado')
-            elif nota1 > 10 or nota2 > 10:
-                sg.popup('Sao só validas maiores do que 10')
-                
+            if nome== '' and nota1== '' and nota2== '':
+                sg.popup('Os campo estão vazios ')
+            elif nome.isdigit()== False and len(nome) < 3: 
+                    sg.popup('O nome está curto')
+            elif nome.isdigit()== True:
+                sg.popup('O nome não pode ser numerico')
 
-        
+            elif nota1.isdigit() == True and nota2.isdigit() == True:
+
+                nota1=float(nota1)
+                nota2=float(nota2)
+                if nota1 > 10 or nota2 > 10:
+                    sg.popup('Sao só validas maiores do que 10')
+
+            else:
+                sg.popup('As devem ser numéricas')    
+    
+            lista.append({  
+                'nome': nome,
+                'nota1': nota1,
+                'nota2': nota2
+            })    
+
+
 
     window.close()
 
