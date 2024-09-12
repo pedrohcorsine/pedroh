@@ -26,12 +26,16 @@ def tela1():
 
         if event == 'Adicionar aluno':
             nome = values['nome']
-            nota1 = values['nota1']
-            nota2 = values['nota2']
-            if len(nome) < 3:
-             sg.popup('Esta errado')   
+            nota1 = int(values['nota1'])
+            nota2 = int(values['nota2'])
 
-        print('Hello', values[0], '!')
+            if len(nome) < 3:
+             sg.popup('Esta errado')
+            elif nota1 > 10 or nota2 > 10:
+                sg.popup('Sao só validas maiores do que 10')
+                
+
+        
 
     window.close()
 
