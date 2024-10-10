@@ -40,7 +40,7 @@ def tela1():
                 nota1=float(nota1)
                 nota2=float(nota2)
                 if nota1 > 10 or nota2 > 10:
-                    sg.popup('Sao só validas menores do que 10')
+                    sg.popup('São só validas menores do que 10')
 
             else:
                 sg.popup('As notas devem ser numéricas')    
